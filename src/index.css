@@ -1,3 +1,11 @@
+*{
+  padding: 0px;
+  margin:0px;
+  box-sizing: border-box;
+}
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +19,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+.card_img  {
+ /*  position: absolute;
+  margin-top: 2em;
+  margin-left: 20em;
+  margin-right: 7em;
+  margin-bottom: 2em;
+  width: 1000px;
+  height: 318px; */
+  width: 90%;
+  height: 50%;
+ /*  margin-top: 3.2em;
+  margin-bottom: 1em; */
+  margin-top: 2em;
+  margin-left: 4.2em;
+  
+  
+}
+
+.img {
+width: 100%;
+height: 30em;
+z-index: -1;
+}
+/* banner_listado */
+
