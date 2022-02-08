@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const Products = () => {
-  const location=useLocation()
+  const location = useLocation();
   const [products, setProducts] = useState([]);
   const [id, setId] = useState();
   const [form, setForm] = useState({
@@ -17,17 +17,15 @@ const Products = () => {
       .get("http://localhost:3001/api/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(error));
-
   }, [location]);
 
-  const handleSumbit = (id,e) => {
+  const handleSumbit = (id, e) => {
     e.preventDefault();
-    console.log(id,"AHORA SI?")
+    console.log(id, "AHORA SI?");
     axios.delete(`http://localhost:3001/api/products/${id}`);
 
     setProducts(products.filter((product) => product._id !== id));
   };
- 
 
   const editToggle = (idProduct) => {
     setId(idProduct);
@@ -41,45 +39,27 @@ const Products = () => {
         });
       }
     });
-    console.log(form)
-  };
-
-  const editHandleSumbit = (e) => {
-    e.preventDefault();
-    axios
-      .put(`http://localhost:3001/api/products/${id}`, form)
-      .then(() =>
-        axios.get("http://localhost:3001/api/products").then((res) => setProducts(res.data))
-      )
-      .catch((error) => console.log(error));
+    console.log(form);
   };
 
   const handleInput = (e) => {
-
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
   };
-  //funcion para guardar y ocultar el modal
+
   $("#btnSave").on("click", function (e) {
-    console.log(id,"HAY ID?")
-
     axios
-    .put(`http://localhost:3001/api/products/${id}`, form)
-    .then(() =>
-      axios.get("http://localhost:3001/api/products").then((res) => setProducts(res.data))
-    )
-    .catch((error) => console.log(error));
-
-
-
-
+      .put(`http://localhost:3001/api/products/${id}`, form)
+      .then(() =>
+        axios
+          .get("http://localhost:3001/api/products")
+          .then((res) => setProducts(res.data))
+      )
+      .catch((error) => console.log(error));
 
     $("#exampleModalCenter").modal("hide");
-
-
-
   });
 
   return (
@@ -136,7 +116,7 @@ const Products = () => {
                         type="button"
                         class="btn"
                         id={product._id}
-                        onClick={(e)=>handleSumbit(product._id,e)}
+                        onClick={(e) => handleSumbit(product._id, e)}
                       >
                         <i class="fa fa-trash"></i>
                       </button>
@@ -176,7 +156,7 @@ const Products = () => {
                 <div class="container">
                   <div class="card">
                     <div class="card-body" style={{ alignSelf: "center" }}>
-                      <form >
+                      <form>
                         <div class="row">
                           <div class="">
                             <img

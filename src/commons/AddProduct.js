@@ -1,7 +1,7 @@
 import useInput from "../hooks/useInput";
 import axios from "axios";
 import useInputNum from "../hooks/useInputNum";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
   const image = useInput();
@@ -54,11 +54,6 @@ const AddProduct = () => {
                       class="rounded"
                     />
                   )}
-
-                {/*   <img
-                    src="http://via.placeholder.com/150x150"
-                    class="rounded"
-                  /> */}
                 </div>
               </div>
               <div class="row">
